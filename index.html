@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<link href="./assets/bootstrap-dist/css/bootstrap.min.css" rel="stylesheet">	
+    <title>Кредитный калькулятор</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+
+<body class="hidden_scroll_y">
+    <div class="main_body_s"></div>
+    <div class="main_body"></div>
+    <div class="okno">
+        <div class="main_block">
+            <h1>Калькулятор <br> кредитных возможностей</h1>
+            <label>
+                <h3>Введите данные для расчета</h3>
+				<div class="data-inputs vvod">
+					<div class="input-group mb-3">
+						<span class="input-group-text">Сумма дохода семьи</span>
+						<input id="prihod" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Количество членов семьи</span>
+						<input id="people" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Количество детей на иждивении</span>
+						<input id="children" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Количество пенсионеров в семье</span>
+						<input id="oldman" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Процент по кредиту</span>
+						<input id="percent" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Сумма необходимых ежемесячных затрат</span>						
+						<input id="sumObez" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Укажите необходимые бытовые расходы (прожиточный минимум будет учтен автоматически)">?</span>
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text not-common-width">Срок кредита с</span>						
+						<input id="start" type="date" class="form-control" value="2023-03-20" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
+						<span class="input-group-text not-common-width">на</span>
+						<input id="duration" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
+						<span class="input-group-text not-common-width" >мес</span>
+					</div>
+					<button class="knopka btn btn-primary" type="button" onclick="logic()">Рассчитать</button>
+				</div>                
+            </label>
+            <img src="./assets/images/g.png" alt="" class="img__g_1" />
+            <img src="./assets/images/g.png" alt="" class="img__g_2" />
+            <img src="./assets/images/m1.png" alt="" class="img__3d_1" />
+            <img src="./assets/images/m2.png" alt="" class="img__3d_2" />
+            <img src="./assets/images/m3.png" alt="" class="img__3d_3" />
+        </div>
+        <div class="main_block_2">
+            <div class="vvod none" id="div1">
+                <div class="wk-tbd">
+                    <table class="fdata">
+                        <tbody>
+                            <tr>
+                                <td>Ежемесячный (фиксированный) платеж: <abbr
+                                        data-title="Платеж расчитывается, принимая во внимание количество детей и взрослых в семье и автоматически вычитает прожиточный минимум из суммы дохода помимо необходимых ежемесячных затрат."><sup>[?]</sup></abbr>
+										
+										<a href="http://publication.pravo.gov.ru/document/5500202309070001"><sup>[?]</sup></a>
+								</td>
+                                <td id="efp"></td>
+                            </tr>
+                            <tr>
+                                <td>Количество платежей:</td>
+                                <td id="kp"></td>
+                            </tr>
+                            <tr>
+                                <td>Месячная процентная ставка составляет:</td>
+                                <td id="mp"></td>
+                            </tr>
+                            <tr>
+                                <td>Срок кредита составляет:</td>
+                                <td id="sk"></td>
+                            </tr>
+                            <tr>
+                                <td>Полная стоимость кредита:</td>
+                                <td id="psk"></td>
+                            </tr>
+                            <tr>
+                                <td>Сумма переплаты:</td>
+                                <td id="sp"></td>
+                            </tr>
+                            <tr>
+                                <td>Сумма, которая фактически будет получена:</td>
+                                <td id="fs"></td>
+                            </tr>
+                            <tr>
+                                <td>Полная стоимость кредита, готовых:</td>
+                                <td id="pskg"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 id="h2_grafik">График платежей:</h2>
+                <div class="wk-tbd">
+                    <table id="table2">
+                        <thead id="head2">
+                            <tr>
+                                <td>№ платежа</td>
+                                <td>Дата платежа</td>
+                                <td>Сумма платежа</td>
+                                <td>Начисленные проценты</td>
+                                <td>Выплата основного долга</td>
+                                <td>Остаток задолжности</td>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyt">
+                        </tbody>
+                        <tfoot class="foot">
+                            <tr id="foot">
+                                <td>Итого:</td>
+                                <td id="td1"></td>
+                                <td id="td2"></td>
+                                <td id="td3"></td>
+                                <td id="td4"></td>
+                                <td id="td5"></td>
+                            </tr>
+                            <tr id="foot1">
+                            </tr>
+                            <tr id="foot2">
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+	<script src="./assets/js/jquery-3.7.1.min.js"></script>
+	<script src="./assets/bootstrap-dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+	  $(document).ready(function () {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+	    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+	  });
+	</script>
+</body>
+
+</html>
