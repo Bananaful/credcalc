@@ -29,7 +29,7 @@ function logic() {
     period /= 86400000;
 
     var adults = people - children - oldman;
-    var pmin = adults * 14958 + children * 14169 + oldman * 11802;
+    var pmin = adults * 16844 + children * 14989 + oldman * 13290;
     document.getElementById("sk").innerHTML = period + " дней.";
     var sumPay = Math.round(period / 30);
     document.getElementById("kp").innerHTML = sumPay;
