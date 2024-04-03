@@ -15,38 +15,43 @@
     <div class="main_body"></div>
     <div class="okno">
         <div class="main_block">
-            <h1>Калькулятор <br> кредитных возможностей</h1>
+            <h1>Калькулятор <br> кредитных возможностей</h1>			
             <label>
                 <h3>Введите данные для расчета</h3>
 				<div class="data-inputs vvod">
 					<div class="input-group mb-3">
 						<span class="input-group-text">Сумма дохода семьи</span>
-						<input id="prihod" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						<input id="prihod" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Сумма совокупного дохода семьи">?</span>
 					</div>
 					<div class="input-group mb-3">
-						<span class="input-group-text">Колечество членов семьи</span>
-						<input id="people" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						<span class="input-group-text">Трудоспособные члены семьи</span>
+						<input id="people" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество трудоспособных членов семьи">?</span>
 					</div>
 					<div class="input-group mb-3">
-						<span class="input-group-text">Количество детей</span>
-						<input id="children" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						<span class="input-group-text">Дети</span>
+						<input id="children" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество несовершеннолетних членов семьи">?</span>
 					</div>
 					<div class="input-group mb-3">
-						<span class="input-group-text">Количество пенсионеров</span>
-						<input id="oldman" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						<span class="input-group-text">Пенсионеры</span>
+						<input id="oldman" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество пенсионеров в семье">?</span>
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text">Процент по кредиту</span>
 						<input id="percent" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+						<span id="spanPercent" class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Процентная ставка по планируемому кредиту. Определяется каждым банком индивидульно. Ориентировочно равна ключевой ставке ЦБ: https://www.cbr.ru/hd_base/keyrate/  (клик - открыть в новом окне)">?</span>
 					</div>
 					<div class="input-group mb-3">
-						<span class="input-group-text">Сумма желательных ежемесячных затрат</span>						
+						<span class="input-group-text">Другие затраты</span>						
 						<input id="sumObez" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
-						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Укажите необходимые бытовые расходы (прожиточный минимум будет учтен автоматически)">?</span>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Ежемесячная сумма других затрат (например, театр, фитнес, и т.п.)">?</span>
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text not-common-width">Срок кредита с</span>						
-						<input id="start" type="date" class="form-control" value="2023-03-20" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
+						<input id="start" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
 						<span class="input-group-text not-common-width">на</span>
 						<input id="duration" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">						
 						<span class="input-group-text not-common-width" >мес</span>
@@ -143,10 +148,15 @@
 	<script src="jquery-3.7.1.min.js"></script>
 	<script src="./jq/js/bootstrap.bundle.min.js"></script>
 	<script>
-	  $(document).ready(function () {
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-	    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-	  });
+		$(document).ready(function () {
+			const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+			const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+			
+			// навешиваем событие на клик по спану
+			$('#spanPercent').on('click', () => window.open('https://www.cbr.ru/hd_base/keyrate/'));
+			// проставляем инпут текущую дату 
+			document.getElementById("start").valueAsDate = new Date();
+		});
 	</script>
 </body>
 
