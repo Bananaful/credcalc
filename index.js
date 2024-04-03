@@ -19,7 +19,15 @@ function logic() {
     var prihod = document.getElementById("prihod").value;
     var start = document.getElementById("start").value;
     var duration = document.getElementById("duration").value;
+	if (!(prihod && people && percent && sumObez && duration)) {
+		alert ("Необходимо заполнить обязательные поля: Сумма дохода семьи, Трудоспособные члены семьи, Процент по кредиту, Другие затраты, Срок кредита по");
+
+	}else{
     var dates = Date.parse(start);
+	var dateNow = new Date() - 86400000;
+	if (dates<dateNow){
+		alert ("Указана недопустимая дата: дата не может быть раньше настоящего дня");
+	}else{
     var day = new Date(dates);
     var d = day.getDate();
 	duration *= 2628000000;
@@ -29,7 +37,11 @@ function logic() {
     period /= 86400000;
 
     var adults = people - children - oldman;
-    var pmin = adults * 16844 + children * 14989 + oldman * 13290;
+    var pmin = adults * 14958 + children * 14169 + oldman * 11802;
+	var everyMonthPay = prihod - sumObez - pmin;
+	if (everyMonthPay <= 0){
+		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+sumObez+pmin+" рублей, пожалуйста проверьте введённые данные");
+	}else{
     document.getElementById("sk").innerHTML = period + " дней.";
     var sumPay = Math.round(period / 30);
     document.getElementById("kp").innerHTML = sumPay;
@@ -145,5 +157,5 @@ function logic() {
     var scroll = document.getElementById('div1');
     scroll.scrollIntoView();
 
-    click++;
+    click++;}}}
 }
