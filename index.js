@@ -19,7 +19,7 @@ function logic() {
     var prihod = document.getElementById("prihod").value;
     var start = document.getElementById("start").value;
     var duration = document.getElementById("duration").value;
-	if (!(prihod && people && percent && sumObez && duration)) {
+	if (prihod<=0 || people<=0 || percent<=0 || sumObez<=0 || duration<=0) {
 		alert ("Необходимо заполнить обязательные поля: Сумма дохода семьи, Трудоспособные члены семьи, Процент по кредиту, Другие затраты, Срок кредита по");
 
 	}else{
