@@ -42,7 +42,7 @@ function logic() {
     console.log(pmin);
     console.log(typeof pmin);
     console.log(typeof sumObez);
-    var err = pmin + (parseInt(sumObez, 10);
+    var err = pmin + (parseInt(sumObez, 10));
     console.log(err);
 	var everyMonthPay = prihod - sumObez - pmin;
 	console.log(everyMonthPay);
