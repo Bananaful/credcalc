@@ -1,7 +1,8 @@
 var click = 0;
 
 function logic() {
-
+    var lyricsBox = document.getElementsByClassName("none");
+    lyricsBox[0].style.display = 'block';
     document.body.classList.remove("hidden_scroll_y");
 
     if (click > 0) {
@@ -47,7 +48,8 @@ function logic() {
 	var everyMonthPay = prihod - sumObez - pmin;
 	console.log(everyMonthPay);
 	if (everyMonthPay <= 0){
-		
+
+    		lyricsBox[0].style.display = 'none';
 		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+err+" рублей, пожалуйста проверьте введённые данные");
 	}else{
     document.getElementById("sk").innerHTML = period + " дней.";
@@ -159,8 +161,7 @@ function logic() {
     document.getElementById("fs").innerHTML = factGot.toFixed(2) + " рублей";
     document.getElementById("pskg").innerHTML = truePercent.toFixed(2) + " %";
 
-    var lyricsBox = document.getElementsByClassName("none");
-    lyricsBox[0].style.display = 'block';
+
 
     var scroll = document.getElementById('div1');
     scroll.scrollIntoView();
