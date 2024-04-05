@@ -2,7 +2,7 @@ var click = 0;
 
 function logic() {
 
-    //document.body.classList.remove("hidden_scroll_y");
+    document.body.classList.remove("hidden_scroll_y");
 
     if (click > 0) {
         var myobj = document.getElementById("bodyt");
