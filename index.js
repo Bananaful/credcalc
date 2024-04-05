@@ -2,7 +2,7 @@ var click = 0;
 
 function logic() {
 
-    document.body.classList.remove("hidden_scroll_y");
+    //document.body.classList.remove("hidden_scroll_y");
 
     if (click > 0) {
         var myobj = document.getElementById("bodyt");
@@ -37,7 +37,7 @@ function logic() {
     period /= 86400000;
 
     var adults = people - children - oldman;
-    var pmin = adults * 14958 + children * 14169 + oldman * 11802;
+    var pmin = adults * 16844 + children * 14989 + oldman * 13290;
 	var everyMonthPay = prihod - sumObez - pmin;
 	if (everyMonthPay <= 0){
 		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+sumObez+pmin+" рублей, пожалуйста проверьте введённые данные");
