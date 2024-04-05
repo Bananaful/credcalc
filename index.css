@@ -29,7 +29,7 @@ body {
 }
 
 body.hidden_scroll_y {
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .main_body_s {
