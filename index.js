@@ -36,7 +36,7 @@ function logic() {
     var period = dates2 - dates;
     period /= 86400000;
 
-    var adults = people - children - oldman;
+    var adults = people;
     var pmin = adults * 16844 + children * 14989 + oldman * 13290;
 	var everyMonthPay = prihod - sumObez - pmin;
 	if (everyMonthPay <= 0){
