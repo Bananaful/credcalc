@@ -40,7 +40,8 @@ function logic() {
     var pmin = adults * 16844 + children * 14989 + oldman * 13290;
 	var everyMonthPay = prihod - sumObez - pmin;
 	if (everyMonthPay <= 0){
-		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+sumObez+pmin+" рублей, пожалуйста проверьте введённые данные");
+		var err = sumObez+pmin;
+		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+err+" рублей, пожалуйста проверьте введённые данные");
 	}else{
     document.getElementById("sk").innerHTML = period + " дней.";
     var sumPay = Math.round(period / 30);
