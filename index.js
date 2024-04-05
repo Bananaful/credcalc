@@ -39,6 +39,8 @@ function logic() {
     var adults = people;
     var pmin = adults * 16844 + children * 14989 + oldman * 13290;
     console.log(pmin);
+    console.log(typeof pmin);
+    console.log(typeof sumObez);
     var err = pmin + sumObez;
     console.log(err);
 	var everyMonthPay = prihod - sumObez - pmin;
