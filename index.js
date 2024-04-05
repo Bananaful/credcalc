@@ -16,6 +16,7 @@ function logic() {
     var children = document.getElementById("children").value;
     var percent = document.getElementById("percent").value;
     var sumObez = document.getElementById("sumObez").value;
+    console.log(typeof sumObez);
     var prihod = document.getElementById("prihod").value;
     var start = document.getElementById("start").value;
     var duration = document.getElementById("duration").value;
