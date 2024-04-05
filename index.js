@@ -39,9 +39,10 @@ function logic() {
     var adults = people;
     var pmin = adults * 16844 + children * 14989 + oldman * 13290;
     console.log(pmin);
-    var err = sumObez+pmin;
+    var err = pmin + sumObez;
     console.log(err);
 	var everyMonthPay = prihod - sumObez - pmin;
+	console.log(everyMonthPay);
 	if (everyMonthPay <= 0){
 		
 		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+err+" рублей, пожалуйста проверьте введённые данные");
