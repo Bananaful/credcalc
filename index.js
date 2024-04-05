@@ -21,6 +21,7 @@ function logic() {
     var prihod = document.getElementById("prihod").value;
     var start = document.getElementById("start").value;
     var duration = document.getElementById("duration").value;
+    var mes = duration;
 	if (prihod<=0 || people<=0 || percent<=0 || sumObez<=0 || duration<=0) {
 		alert ("Необходимо заполнить обязательные поля: Сумма дохода семьи, Трудоспособные члены семьи, Процент по кредиту, Другие затраты, Срок кредита по");
 
@@ -52,7 +53,7 @@ function logic() {
     		lyricsBox[0].style.display = 'none';
 		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+err+" рублей, пожалуйста проверьте введённые данные");
 	}else{
-    document.getElementById("sk").innerHTML = period + " дней.";
+    document.getElementById("sk").innerHTML = mes + " мес.";
     var sumPay = Math.round(period / 30);
     document.getElementById("kp").innerHTML = sumPay;
     var percentByMonth = percent / 12 / 100;
@@ -79,7 +80,7 @@ function logic() {
         var date2 = new Date(date);
         var month = date2.getMonth() + 1;
         var year = date2.getFullYear();
-        switch (month) {
+        /*switch (month) {
             case 1:
                 month = "Январь";
                 break;
@@ -116,7 +117,7 @@ function logic() {
             case 12:
                 month = "Декабрь";
                 break;
-        }
+        }*/
         var str = document.createElement('tr');
         bodyt.append(str);
         str.id = "month" + (i + 1);
@@ -132,7 +133,7 @@ function logic() {
                 pom.innerHTML = i + 1;
             } else if (m == 1) {
                 var pom = document.getElementById("data" + i + m);
-                pom.innerHTML = d + " " + month + ", " + year;
+                pom.innerHTML = new Date(year, month, d).toLocaleDateString();
             } else if (m == 2) {
                 var pom = document.getElementById("data" + i + m);
                 pom.innerHTML = everyMonthPay.toFixed(2);
@@ -157,9 +158,9 @@ function logic() {
     document.getElementById('td2').innerHTML = fullCost.toFixed(2);
     document.getElementById('td3').innerHTML = factPayPercent.toFixed(2);
     document.getElementById('td4').innerHTML = factGot.toFixed(2);
-    document.getElementById("sp").innerHTML = factPayPercent.toFixed(2) + " рублей";
+    document.getElementById("sp").innerHTML = factPayPercent.toFixed(2) + " рублей"+" ("+truePercent.toFixed(2)+"%)";
     document.getElementById("fs").innerHTML = factGot.toFixed(2) + " рублей";
-    document.getElementById("pskg").innerHTML = truePercent.toFixed(2) + " %";
+    //document.getElementById("pskg").innerHTML = truePercent.toFixed(2) + " %";
 
 
 
