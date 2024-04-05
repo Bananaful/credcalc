@@ -412,6 +412,9 @@ abbr {
   max-width: 1000px;
   overflow-x: auto;
   width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  padding-bottom:30px;
 }
 
 td {
