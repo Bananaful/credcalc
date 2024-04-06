@@ -54,7 +54,7 @@ function logic() {
 		alert ("Сумма дохода семьи меньше суммы затрат (включая прожиточный минимум). Суммарная сумма затрат: "+err+" рублей, пожалуйста проверьте введённые данные");
 	}else{
     document.getElementById("sk").innerHTML = mes + " мес.";
-    var sumPay = Math.round(period / 30.5);
+    var sumPay = mes;
     document.getElementById("kp").innerHTML = sumPay;
     var percentByMonth = percent / 12 / 100;
     document.getElementById("mp").innerHTML = percentByMonth * 100 + "%.";
