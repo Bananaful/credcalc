@@ -23,12 +23,14 @@ function logic() {
     var duration = document.getElementById("duration").value;
     var mes = duration;
 	if (prihod<=0 || people<=0 || percent<=0 || sumObez<=0 || duration<=0) {
+		lyricsBox[0].style.display = 'none';
 		alert ("Необходимо заполнить обязательные поля: Сумма дохода семьи, Трудоспособные члены семьи, Процент по кредиту, Другие затраты, Срок кредита по");
 
 	}else{
     var dates = Date.parse(start);
 	var dateNow = new Date() - 86400000;
 	if (dates<dateNow){
+		lyricsBox[0].style.display = 'none';
 		alert ("Указана недопустимая дата: дата не может быть раньше настоящего дня");
 	}else{
     var day = new Date(dates);
