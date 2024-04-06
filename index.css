@@ -454,7 +454,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 [data-title] {
   cursor: default;
-	color: black;
+
 
 }
 [data-title]::after {
@@ -475,8 +475,11 @@ input[type="number"]::-webkit-inner-spin-button {
   opacity: 1; 
   font-size: 13px;
   width: 400px;
-	color: black;
+
 }
 .pointer {
 	cursor: pointer;
+}
+.qw {
+	background-color: #007bff;
 }
