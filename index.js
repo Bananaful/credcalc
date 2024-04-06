@@ -57,7 +57,7 @@ function logic() {
     var sumPay = mes;
     document.getElementById("kp").innerHTML = sumPay;
     var percentByMonth = percent / 12 / 100;
-    document.getElementById("mp").innerHTML = percentByMonth * 100 + "%.";
+    document.getElementById("mp").innerHTML = (percentByMonth * 100).toFixed(2) + "%.";
     var everyMonthPay = prihod - sumObez - pmin;
     document.getElementById("efp").innerHTML = everyMonthPay + " рублей.";
     var fullCost = everyMonthPay * sumPay;
