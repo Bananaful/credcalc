@@ -78,7 +78,7 @@ function logic() {
         factGot += everyMPchange;
         fullCostH -= everyMPchange;
         var date2 = new Date(date);
-        var month = date2.getMonth() + 1;
+        var month = date2.getMonth();
         var year = date2.getFullYear();
         /*switch (month) {
             case 1:
