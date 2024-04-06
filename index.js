@@ -60,7 +60,7 @@ function logic() {
     document.getElementById("mp").innerHTML = percentByMonth * 100 + "%.";
     var everyMonthPay = prihod - sumObez - pmin;
     document.getElementById("efp").innerHTML = everyMonthPay + " рублей.";
-    var fullCost = everyMonthPay * sumPay
+    var fullCost = everyMonthPay * sumPay;
     document.getElementById("psk").innerHTML = fullCost + " рублей.";
 
     ka = (percentByMonth * Math.pow((1 + percentByMonth), sumPay)) / ((Math.pow((1 + percentByMonth), sumPay)) - 1);
