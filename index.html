@@ -27,17 +27,17 @@
 					<div class="input-group mb-3">
 						<span class="input-group-text">Трудоспособные члены семьи</span>
 						<input id="people" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество трудоспособных членов семьи">?</span>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество трудоспособных членов семьи. Прожиточный минимум на каждого: 16844 руб.">?</span>
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text">Дети</span>
 						<input id="children" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество несовершеннолетних членов семьи">?</span>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество детей. Прожиточный минимум на каждого: 14989 руб.">?</span>
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text">Пенсионеры</span>
 						<input id="oldman" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество пенсионеров в семье">?</span>
+						<span class="input-group-text not-common-width" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Количество пенсионеров в семь. Прожиточный минимум на каждого: 13290 руб.">?</span>
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text">Процент по кредиту</span>
@@ -86,7 +86,7 @@
                             </tr>
 							<tr>
                                 <td>Месячная процентная ставка:<abbr
-                                        data-title="Рассчитывается по формуле: Годовой процент/количестов месячев в году."><sup>[?]</sup></abbr>
+                                        data-title="Рассчитывается по формуле: Годовой процент/количестов месячев в году. Начисляется каждый месяц на остаток задолжности."><sup>[?]</sup></abbr>
 								</td>
                                 <td id="mp"></td>
                             </tr>
@@ -127,7 +127,8 @@
                                 <td>№ платежа</td>
                                 <td>Дата платежа</td>
                                 <td>Сумма платежа</td>
-                                <td>Начисленные проценты</td>
+                                <td>Начисленные проценты<abbr
+                                        data-title="Остаток задолжности * месячная процентная ставка."><sup>[?]</sup></abbr></td>
                                 <td>Выплата основного долга</td>
                                 <td>Остаток задолжности</td>
                             </tr>
