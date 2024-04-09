@@ -163,7 +163,7 @@ function logic() {
     document.getElementById("sp").innerHTML = factPayPercent.toFixed(2) + " рублей";
     document.getElementById("fs").innerHTML = factGot.toFixed(2) + " рублей";
     document.getElementById("pskg").innerHTML = truePercent.toFixed(2) + " %";
-    document.getElementById("percGd").innerHTML = percGd.toFixed(2) + " %";
+    document.getElementById("percGd").innerHTML = percGd + " %";
 
 
 
