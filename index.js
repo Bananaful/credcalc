@@ -160,9 +160,10 @@ function logic() {
     document.getElementById('td2').innerHTML = fullCost.toFixed(2);
     document.getElementById('td3').innerHTML = factPayPercent.toFixed(2);
     document.getElementById('td4').innerHTML = factGot.toFixed(2);
-    document.getElementById("sp").innerHTML = factPayPercent.toFixed(2) + " рублей"+" ("+truePercent.toFixed(2)+"%)";
+    document.getElementById("sp").innerHTML = factPayPercent.toFixed(2) + " рублей";
     document.getElementById("fs").innerHTML = factGot.toFixed(2) + " рублей";
-    //document.getElementById("pskg").innerHTML = truePercent.toFixed(2) + " %";
+    document.getElementById("pskg").innerHTML = truePercent.toFixed(2) + " %";
+    document.getElementById("gd").innerHTML = percent.toFixed(2) + " %";
 
 
 
